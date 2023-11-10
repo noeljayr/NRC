@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Girl Engineer</title>
+
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/admin.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+
+    <link
+      rel="shortcut icon"
+      href="../public/logos/favicon.png"
+      type="image/x-icon"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+
+    <script defer src="admin.js"></script>
+    <script src="jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <div class="side-bar">
+        <a href="dashboard.html" class="side-link">
+          <i class="bi bi-house-fill"></i>
+          Dashboard
+        </a>
+        
+
+        <a href="news.html" class="side-link active-side-link">
+          <i class="bi bi-newspaper"></i>
+          News
+        </a>
+
+
+        <a href="admins " class="side-link">
+          <i class="bi bi-people-fill"></i>
+          Admins
+        </a>
+      </div>
+
+      <div class="top-bar">
+        <a href="dashboard.html" class="logo">
+          <img
+            src="../public/logos/logo.png"
+            alt="Girl Engineer Logo"
+            class="logo-gfx"
+          />
+          <h1>NRC</h1>
+        </a>
+
+        <span class="settings">
+          <i class="bi bi-person-fill-gear"></i>
+
+          <span class="options">
+            <a  href="profile?user_id=">Profile</a>
+            <a href="includes/logout ">Logout</a> 
+          </span>
+        </span>
+      </div>
+
+      <span class="greeting">
+        <span>View and Edit</span> 
+      </span>
+
+      <form id="blog-form" class="form" method="POST"  action="includes/updateNews " enctype = "multipart/form-data">
+        <div class="avatar-upload">
+          <div class="avatar-edit">
+            <input
+              type="file"
+              name="photo"       
+              id="imageUpload"
+              accept=".png, .jpg, .jpeg"
+            />
+            <label for="imageUpload"></label>
+            
+          </div>
+          <div class="avatar-preview">
+            <div style="background-image: url() ;" id="imagePreview"></div>
+
+          </div>
+        </div>
+        <input type="number" name="news_id" value="" hidden>
+
+        <div class="input-group">
+          <label class="input-label">Title</label>
+          <input
+            required
+            name="title"
+            type="text"
+            value=""
+          />
+        </div>
+
+        <div class="tip">
+          <span class="icon">
+            <i class="bi bi-info-lg"></i>
+          </span>
+          <div class="tips-container">
+            <ul>
+              <li>
+                Select (Highlight) text and use the shortcut "<b>CTRL + B</b>"
+                or Click the "<b>B</b>" button to make it bold.
+              </li>
+
+              <li>Enter key starts a new Paragraph.</li>
+              <li>
+                You can resize the height of the input field by dragging the bar
+                up or down
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label class="input-label">Content</label>
+          <button onclick="addBold()" class="cta-2 bold-icon">B</button>
+          <div id="editor" class="resizable" contenteditable="true"></div>
+          <div class="resize-handle"></div>
+          <textarea
+            class="hidden"
+            hidden
+            id="code"
+            name="content"
+            id=""
+            cols="30"
+            rows="10"
+          >  </textarea>
+        </div>
+
+        <div class="btn-container">
+          <a href = "news " class="discard-btn btn"> Back </a>
+
+          <div class="msg-container success-container">
+            <div class="svg ui-success">
+                  <svg
+                    viewBox="0 0 87 87"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <g
+                      id="Page-1"
+                      stroke="none"
+                      stroke-width="1"
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <g id="Group-3" transform="translate(2.000000, 2.000000)">
+                        <circle
+                          id="Oval-2"
+                          stroke="rgba(165, 220, 134, 0.2)"
+                          stroke-width="4"
+                          cx="41.5"
+                          cy="41.5"
+                          r="41.5"
+                        ></circle>
+                        <circle
+                          class="ui-success-circle"
+                          id="Oval-2"
+                          stroke="#A5DC86"
+                          stroke-width="4"
+                          cx="41.5"
+                          cy="41.5"
+                          r="41.5"
+                        ></circle>
+                        <polyline
+                          class="ui-success-path"
+                          id="Path-2"
+                          stroke="#A5DC86"
+                          stroke-width="4"
+                          points="19 38.8036813 31.1020744 54.8046875 63.299221 28"
+                        ></polyline>
+                      </g>
+                    </g>
+                  </svg>
+            </div>
+
+            <span class="msg">Done</span>
+          
+          </div>
+
+          <div class="msg-container error-container">
+             <div class="svg ui-error">
+                <svg
+                  viewBox="0 0 87 87"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <g
+                    id="Page-1"
+                    stroke="none"
+                    stroke-width="1"
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <g id="Group-2" transform="translate(2.000000, 2.000000)">
+                      <circle
+                        id="Oval-2"
+                        stroke="rgba(252, 191, 191, .5)"
+                        stroke-width="4"
+                        cx="41.5"
+                        cy="41.5"
+                        r="41.5"
+                      ></circle>
+                      <circle
+                        class="ui-error-circle"
+                        stroke="#F74444"
+                        stroke-width="4"
+                        cx="41.5"
+                        cy="41.5"
+                        r="41.5"
+                      ></circle>
+                      <path
+                        class="ui-error-line1"
+                        d="M22.244224,22 L60.4279902,60.1837662"
+                        id="Line"
+                        stroke="#F74444"
+                        stroke-width="3"
+                        stroke-linecap="square"
+                      ></path>
+                      <path
+                        class="ui-error-line2"
+                        d="M60.755776,21 L23.244224,59.8443492"
+                        id="Line"
+                        stroke="#F74444"
+                        stroke-width="3"
+                        stroke-linecap="square"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+             </div>
+
+            <span class="msg">Failed</span>
+          
+          </div>
+
+
+          <button class="btn" type="submit">
+             <span class="add">Update</span>
+              <span class="wait">Please Wait...</span>
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      const editor = document.getElementById("editor");
+      const bIcon = document.querySelector(".bold-icon");
+
+      var postHTML = document.getElementById("code");
+      editor.addEventListener("input", () => {
+        postHTML.value = editor.innerHTML;
+      });
+
+      if (postHTML.value.length > 0) {
+        editor.innerHTML = postHTML.value;
+      }
+
+      bIcon.addEventListener("click", () => {
+        event.preventDefault();
+      });
+
+      // Function to add bold to selected text
+      function addBold() {
+        document.execCommand("bold", false, null);
+      }
+
+      // Listen for Ctrl + B keypress
+      editor.addEventListener("keydown", (e) => {
+        if (e.ctrlKey && e.key === "b") {
+          e.preventDefault(); // Prevent the browser's default behavior
+          addBold();
+        }
+      });
+
+      // Listen for Enter keypress
+      editor.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault(); // Prevent the default behavior of Enter key
+          document.execCommand("insertHTML", false, "<br><br>"); // Insert line breaks
+        }
+      });
+
+      const btn = document.querySelector("button");
+
+      // btn.addEventListener("click", () => {
+      //   console.log(editor.innerHTML);
+      // });
+
+      console.log();
+    </script>
+
+    <script src="jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const $resizable = $(".resizable");
+        const $resizeHandle = $(".resize-handle");
+
+        let isResizing = false;
+
+        // Function to show the resize handle when near the bottom edge
+        function showResizeHandle(event) {
+          const mouseY = event.clientY;
+          const divBottom = $resizable.offset().top + $resizable.height();
+
+          if (divBottom - mouseY <= 10) {
+            $resizeHandle.css("opacity", 1);
+          } else {
+            $resizeHandle.css("opacity", 1);
+          }
+        }
+
+        // Mouse down event handler to start resizing
+        $resizeHandle.on("mousedown", function (event) {
+          event.preventDefault();
+          isResizing = true;
+
+          const startY = event.clientY;
+          const startHeight = $resizable.height();
+
+          $(document).on("mousemove", function (event) {
+            const mouseY = event.clientY;
+            const newHeight = startHeight + (mouseY - startY);
+
+            // Set a minimum height to prevent the div from becoming too small
+            if (newHeight > 100) {
+              $resizable.height(newHeight);
+            }
+          });
+
+          $(document).on("mouseup", function () {
+            isResizing = false;
+            $(document).off("mousemove");
+            $(document).off("mouseup");
+            $resizeHandle.css("opacity", 1);
+          });
+        });
+
+        // Mouse move event handler to show/hide the resize handle
+        $resizable.on("mousemove", function (event) {
+          if (!isResizing) {
+            showResizeHandle(event);
+          }
+        });
+
+        // Mouse leave event handler to hide the resize handle
+        $resizable.on("mouseleave", function () {
+          $resizeHandle.css("opacity", 1);
+        });
+      });
+
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $("#imagePreview").css(
+              "background-image",
+              "url(" + e.target.result + ")"
+            );
+            $("#imagePreview").hide();
+            $("#imagePreview").fadeIn(650);
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      $("#imageUpload").change(function () {
+        readURL(this);
+      });
+    </script>
+  </body>
+</html>
