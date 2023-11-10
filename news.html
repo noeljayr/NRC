@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>National Resolution For Change - News & Blogs</title>
+
+    <link rel="stylesheet" href="css/index.css" />
+
+    <link
+      rel="shortcut icon"
+      href="public/logos/favicon.png"
+      type="image/x-icon"
+    />
+    <script defer src="js/index.js"></script>
+    <script defer src="js/components/footer.js"></script>
+    <script defer src="js/menu.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-2 section"></div>
+    <script src="js/components/navbar.js"></script>
+
+    <div style="margin-top: 8rem" class="main-content">
+      <div class="news-page">
+        <div class="news-page-left">
+          <h1>News and updates</h1>
+
+          <div class="news-container"></div>
+        </div>
+
+        <div class="news-page-right">
+          <div class="input-group">
+            <input placeholder="Search for a blog" type="text" />
+            <button class="cta-2">
+              <img class="" src="public/icons/tabler-icon-search.svg" alt="" />
+            </button>
+          </div>
+
+          <img class="mail-img" src="public/images/mail.png" alt="" />
+
+          <form action="">
+            <h1>Get the latest news delivered to your inbox</h1>
+            <p>Subscribe to stay up-to-date</p>
+
+            <div class="input-group">
+              <input placeholder="Your email" type="text" />
+              <button class="cta submit-btn">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="section footer"></div>
+    <div class="p-policy-credit"></div>
+  </body>
+</html>
+
+<script>
+  const newsContainer = document.querySelector(".news-container");
+  var news = [
+    {
+      id: 1,
+      title: `Denis Mahata Exclusive Interview On YewoTV Online Hosted By Jean Mapulanga`,
+      img: "1.jpg",
+    },
+    {
+      id: 2,
+      title: `Denis Mahata Exclusive Interview On YewoTV Online Hosted By Jean Mapulanga`,
+      img: "1.jpg",
+    },
+    {
+      id: 3,
+      title: `Denis Mahata Exclusive Interview On YewoTV Online Hosted By Jean Mapulanga`,
+      img: "1.jpg",
+    },
+  ];
+
+  function showNews() {
+    news.forEach((n) => {
+      var newsDiv = document.createElement("div");
+      newsDiv.className = "news";
+
+      newsDiv.innerHTML = `
+            <div class="news-thumbnail">
+                  <img src="./public/images/news/${n.img}" alt="" />
+                  <span class="overlay"></span>
+                </div>
+
+                <div class="news-info">
+                  <h2>${n.title}</h2>
+                  <a href="news-active.html?id=${n.id}" class="cta-2">
+                    <img
+                      src="public/icons/tabler-icon-arrow-right.svg"
+                      alt="right-icon"
+                    />
+                  </a>
+                </div>
+            
+            `;
+
+      newsContainer.appendChild(newsDiv);
+    });
+  }
+
+  showNews();
+</script>

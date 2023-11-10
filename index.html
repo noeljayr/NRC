@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>National Resolution For Change - Home</title>
+
+    <link rel="stylesheet" href="css/index.css" />
+
+    <link
+      rel="shortcut icon"
+      href="public/logos/favicon.png"
+      type="image/x-icon"
+    />
+    <script defer src="js/index.js"></script>
+
+    <script defer src="js/components/footer.js"></script>
+    <script defer src="js/menu.js"></script>
+  </head>
+  <body>
+    <div class="navbar section"></div>
+    <script src="js/components/navbar.js"></script>
+
+    <div class="hero-section">
+      <img src="public/images/hero.png" alt="" />
+      <div class="hero-center">
+        <h1>National Resolution For Change</h1>
+        <span class="year">2025</span>
+        <span class="name">Denis Mahata</span>
+      </div>
+
+      <div class="three">
+        <span>Political Insight</span>
+        <span>Revolution</span>
+        <span>Transformative Leadership</span>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="section map-container">
+        <div class="map">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="event-details">
+          <span class="location">
+            <span class="title">
+              <img src="public/icons/tabler-icon-map-pin.svg" alt="" />
+              Event Location:
+            </span>
+
+            <span class="name">Mzuzu, Luwinga</span>
+          </span>
+
+          <div class="calendar">
+            <div class="top">
+              <span class="date">October 2023</span>
+
+              <span class="circles">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+
+              <span class="handles">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+
+            <div class="bottom">
+              24
+              <span class="next">
+                <b>Next:</b> <span>Lilongwe, 10 Nov 2023</span>
+              </span>
+            </div>
+          </div>
+
+          <a href="" class="cta-2">
+            All Events
+
+            <img
+              src="public/icons/tabler-icon-arrow-right.svg"
+              alt="right-icon"
+            />
+          </a>
+        </div>
+      </div>
+
+      <div id="info-section" class="section">
+        <h1>A little information about NRC</h1>
+
+        <span class="bg-gradient"></span>
+        <div class="info-wrapper">
+          <div class="left">
+            <span class="title">
+              <img src="./public/icons/background.png" alt="" />
+              Background
+            </span>
+            <p>
+              NRC is a tailored political philosophy developed exclusively for
+              the nation of Malawi. It serves as a transformative framework
+              aimed at driving positive change and playing a pivotal role in
+              shaping a revitalized Malawi.
+            </p>
+          </div>
+          <div class="right">
+            <div>
+              <span class="vision">
+                <span class="title">
+                  <img src="./public/icons/vision.png" alt="" />
+                  Vision
+                </span>
+
+                <p>
+                  NRC envisions a Malawi where citizens' well-being surpasses
+                  human dignity, promoting active participation in financial and
+                  welfare goals, fair labor compensation, and welfare as a
+                  fundamental right.
+                </p>
+              </span>
+
+              <span class="mission">
+                <span class="title">
+                  <img src="./public/icons/mission.png" alt="" />
+                  Mission
+                </span>
+                <p>
+                  To drive change in Malawi, prioritizing the welfare and
+                  prosperity of all citizens and maximizing the country's
+                  potential for the benefit of all.
+                </p>
+              </span>
+            </div>
+          </div>
+
+          <img class="logo" src="./public/images/logo.png" alt="" />
+        </div>
+
+        <a href="" class="cta-2">
+          Learn More
+
+          <img
+            src="public/icons/tabler-icon-arrow-right.svg"
+            alt="right-icon"
+          />
+        </a>
+      </div>
+
+      <div class="section news-section">
+        <h1>News and updates</h1>
+
+        <div class="news-container news-container-three"></div>
+
+        <a href="" class="cta-2">
+          View More
+
+          <img
+            src="public/icons/tabler-icon-arrow-right.svg"
+            alt="right-icon"
+          />
+        </a>
+      </div>
+
+      <div class="section subscribe-section">
+        <div class="left">
+          <form action="">
+            <h1>Get the latest news delivered to your inbox</h1>
+            <p>Subscribe to stay up-to-date</p>
+
+            <div class="input-group">
+              <input placeholder="Your email" type="text" />
+              <button class="cta">Subscribe</button>
+            </div>
+          </form>
+        </div>
+        <div class="right">
+          <img src="./public/images/mail.png" alt="" />
+          <span class="bg-blur"></span>
+        </div>
+      </div>
+    </div>
+    <div class="section footer"></div>
+    <div class="p-policy-credit"></div>
+  </body>
+
+  <script>
+    const newsContainer = document.querySelector(".news-container");
+    var news = [
+      {
+        id: 1,
+        title: `Denis Mahata Exclusive Interview On YewoTV Online Hosted By Jean Mapulanga`,
+        img: "1.jpg",
+      },
+      {
+        id: 2,
+        title: `Denis Mahata Exclusive Interview On YewoTV Online Hosted By Jean Mapulanga`,
+        img: "1.jpg",
+      },
+      {
+        id: 3,
+        title: `Denis Mahata Exclusive Interview On YewoTV Online Hosted By Jean Mapulanga`,
+        img: "1.jpg",
+      },
+    ];
+
+    function showNews() {
+      news.forEach((n) => {
+        var newsDiv = document.createElement("div");
+        newsDiv.className = "news";
+
+        newsDiv.innerHTML = `
+            <div class="news-thumbnail">
+                  <img src="./public/images/news/${n.img}" alt="" />
+                  <span class="overlay"></span>
+                </div>
+
+                <div class="news-info">
+                  <h2>${n.title}</h2>
+                  <a href="news-active.html?id=${n.id}" class="cta-2">
+                    <img
+                      src="public/icons/tabler-icon-arrow-right.svg"
+                      alt="right-icon"
+                    />
+                  </a>
+                </div>
+            
+            `;
+
+        newsContainer.appendChild(newsDiv);
+        checkChildren();
+      });
+    }
+
+    function checkChildren() {
+      var children = newsContainer.children.length;
+
+      if (children == 1) {
+        newsContainer.classList.remove("news-container-two");
+        newsContainer.classList.remove("news-container-three");
+        newsContainer.classList.add("news-container-one");
+      } else if (children == 2) {
+        newsContainer.classList.remove("news-container-one");
+        newsContainer.classList.remove("news-container-three");
+        newsContainer.classList.add("news-container-two");
+      } else {
+        newsContainer.classList.remove("news-container-one");
+        newsContainer.classList.remove("news-container-two");
+        newsContainer.classList.add("news-container-three");
+      }
+    }
+
+    showNews();
+  </script>
+</html>
